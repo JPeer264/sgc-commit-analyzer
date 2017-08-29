@@ -1,0 +1,63 @@
+{
+  "name": "sgc-commit-analyzer",
+  "description": "A plugin for semantic-release analyzeCommits",
+  "author": "Jan Peer Stöcklmair <janpeer264@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/JPeer264/sgc-commit-analyzer/issues"
+  },
+  "homepage": "https://github.com/JPeer264/sgc-commit-analyzer#readme",
+  "keywords": [
+    "semantic-release",
+    "author",
+    "automation",
+    "changelog",
+    "module",
+    "package",
+    "publish",
+    "release",
+    "semver",
+    "version",
+    "sgc",
+    "semantic-git-commit-cli"
+  ],
+  "license": "MIT",
+  "main": "dest/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JPeer264/sgc-commit-analyzer.git"
+  },
+  "scripts": {
+    "pretest": "npm run lint & npm run babel",
+    "lint": "eslint index.js test.js",
+    "fix": "eslint index.js test.js --fix",
+    "babel": "babel index.js -d dest",
+    "prepublish": "npm run babel",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "test": "nyc ava",
+    "prepush": "npm test"
+  },
+  "ava": {
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
+  },
+  "dependencies": {
+    "conventional-changelog": "0.0.17"
+  },
+  "devDependencies": {
+    "ava": "^0.22.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.6.0",
+    "babel-register": "^6.26.0",
+    "coveralls": "^2.13.1",
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb-base": "^11.3.2",
+    "eslint-plugin-import": "^2.7.0",
+    "husky": "^0.14.3",
+    "mkdirp": "^0.5.1",
+    "nyc": "^11.1.0",
+    "rimraf": "^2.6.1"
+  }
+}
